@@ -1,3 +1,14 @@
+# 代理
+
+git config --global https.proxy http://127.0.0.1:1080
+
+git config --global https.proxy https://127.0.0.1:1080
+
+git config --global --unset http.proxy
+
+git config --global --unset https.proxy
+
+
 # git库文件夹中文件的状态
 - Untracked:  
 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.
@@ -98,6 +109,13 @@ fd1/*
 !/fw/bin/
 !/fw/sf/
 #说明：忽略全部内容，但是不忽略 .gitignore 文件、根目录下的 /fw/bin/ 和 /fw/sf/ 目录；注意要先对bin/的父目录使用!规则，使其不被排除。
+```
+## 测试
+.gitignor忽略规则查看  
+如果你发下.gitignore写得有问题，需要找出来到底哪个规则写错了，可以用git check-ignore命令检查：
+```sh
+$ git check-ignore -v HelloWorld.class
+.gitignore:1:*.class    HelloWorld.class
 ```
 
 ## 注意点
